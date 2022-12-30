@@ -180,7 +180,7 @@ void ApplicationManager::deleteShapes()
 		if (FigList[i]->IsSelected())
 		{
 			FigList.erase(FigList.begin() + i);
-			
+			i--;
 		}
 	}
 }
