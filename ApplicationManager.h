@@ -1,6 +1,7 @@
 #ifndef APPLICATION_MANAGER_H
 #define APPLICATION_MANAGER_H
 
+#include <vector>
 #include "DEFS.h"
 #include "Figures\CFigure.h"
 
@@ -14,8 +15,9 @@ class ApplicationManager
 
 private:
 	int FigCount;		//Actual number of figures
-	CFigure* FigList[MaxFigCount];	//List of all figures (Array of pointers)
+	//CFigure* FigList[MaxFigCount];	//List of all figures (Array of pointers)
 
+	vector <CFigure*> FigList;
 	//Pointers to Input and Output classes
 	GUI* pGUI;
 	
@@ -37,6 +39,13 @@ public:
 	// -- Interface Management Functions	
 	GUI *GetGUI() const; //Return pointer to the interface
 	void UpdateInterface() const;	//Redraws all the drawing window	
+
+
+	//-Deleting shapes
+	void deleteShapes() ;
+
+	//changing fill color
+	void changeFillColor(color Fclr);
 };
 
 #endif

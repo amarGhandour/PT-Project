@@ -139,20 +139,8 @@
     <ClCompile Include="GUI\GUI.cpp">
       <Filter>GUI Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Actions\ActionAddSquare.cpp">
-      <Filter>Action Classes</Filter>
-    </ClCompile>
     <ClCompile Include="Figures\CCircle.cpp">
       <Filter>Figures Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Actions\ActionAddCircle.cpp">
-      <Filter>Action Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Actions\ActionSelectShape.cpp">
-      <Filter>Action Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Actions\ActionAddHexagon.cpp">
-      <Filter>Action Classes</Filter>
     </ClCompile>
     <ClCompile Include="Figures\CHexagon.cpp">
       <Filter>Figures Classes</Filter>
@@ -160,13 +148,31 @@
     <ClCompile Include="Figures\CEllipse.cpp">
       <Filter>Figures Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\ActionAddCircle.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
     <ClCompile Include="Actions\ActionAddEllipse.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionAddHexagon.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionAddSquare.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
     <ClCompile Include="Actions\ActionChngBGCol.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
     <ClCompile Include="Actions\ActionChngDrawCol.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionDeleteShape.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionSelectShape.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionChngFillColor.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -234,9 +240,6 @@
     <ClInclude Include="Figures\CFigure.h">
       <Filter>Figures Classes</Filter>
     </ClInclude>
-    <ClInclude Include="Actions\Action.h">
-      <Filter>Action Classes</Filter>
-    </ClInclude>
     <ClInclude Include="GUI\UI_Info.h">
       <Filter>GUI Classes</Filter>
     </ClInclude>
@@ -250,20 +253,8 @@
     <ClInclude Include="GUI\GUI.h">
       <Filter>GUI Classes</Filter>
     </ClInclude>
-    <ClInclude Include="Actions\ActionAddSquare.h">
-      <Filter>Action Classes</Filter>
-    </ClInclude>
     <ClInclude Include="Figures\CCircle.h">
       <Filter>Figures Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Actions\ActionAddCircle.h">
-      <Filter>Action Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Actions\ActionSelectShape.h">
-      <Filter>Action Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Actions\ActionAddHexagon.h">
-      <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Figures\CHexagon.h">
       <Filter>Figures Classes</Filter>
@@ -271,13 +262,34 @@
     <ClInclude Include="Figures\CEllipse.h">
       <Filter>Figures Classes</Filter>
     </ClInclude>
+    <ClInclude Include="Actions\Action.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionAddCircle.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
     <ClInclude Include="Actions\ActionAddEllipse.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionAddHexagon.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionAddSquare.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Actions\ActionChngBGCol.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Actions\ActionChngDrawCol.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionDeleteShape.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionSelectShape.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionChngFillColor.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
   </ItemGroup>

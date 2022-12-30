@@ -132,8 +132,11 @@
     <ClCompile Include="Actions\ActionAddCircle.cpp" />
     <ClCompile Include="Actions\ActionAddEllipse.cpp" />
     <ClCompile Include="Actions\ActionAddHexagon.cpp" />
+    <ClCompile Include="Actions\ActionAddSquare.cpp" />
     <ClCompile Include="Actions\ActionChngBGCol.cpp" />
     <ClCompile Include="Actions\ActionChngDrawCol.cpp" />
+    <ClCompile Include="Actions\ActionChngFillColor.cpp" />
+    <ClCompile Include="Actions\ActionDeleteShape.cpp" />
     <ClCompile Include="Actions\ActionSelectShape.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
@@ -175,17 +178,20 @@
     <ClCompile Include="Figures\CFigure.cpp" />
     <ClCompile Include="Figures\CHexagon.cpp" />
     <ClCompile Include="Figures\CSquare.cpp" />
-    <ClCompile Include="Actions\ActionAddSquare.cpp" />
     <ClCompile Include="GUI\GUI.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actions\Action.h" />
     <ClInclude Include="Actions\ActionAddCircle.h" />
     <ClInclude Include="Actions\ActionAddEllipse.h" />
     <ClInclude Include="Actions\ActionAddHexagon.h" />
+    <ClInclude Include="Actions\ActionAddSquare.h" />
     <ClInclude Include="Actions\ActionChngBGCol.h" />
     <ClInclude Include="Actions\ActionChngDrawCol.h" />
+    <ClInclude Include="Actions\ActionChngFillColor.h" />
+    <ClInclude Include="Actions\ActionDeleteShape.h" />
     <ClInclude Include="Actions\ActionSelectShape.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
@@ -212,8 +218,6 @@
     <ClInclude Include="Figures\CFigure.h" />
     <ClInclude Include="Figures\CHexagon.h" />
     <ClInclude Include="Figures\CSquare.h" />
-    <ClInclude Include="Actions\Action.h" />
-    <ClInclude Include="Actions\ActionAddSquare.h" />
     <ClInclude Include="GUI\GUI.h" />
     <ClInclude Include="GUI\UI_Info.h" />
     <ClInclude Include="ApplicationManager.h" />

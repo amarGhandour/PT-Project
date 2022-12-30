@@ -3,10 +3,11 @@
 #include "Actions\ActionAddCircle.h"
 #include "Actions\ActionAddHexagon.h"
 #include "Actions\ActionAddEllipse.h"
-
+#include "Actions\ActionDeleteShape.h"
 #include "Actions\ActionSelectShape.h"
 #include "Actions\ActionChngBGCol.h"
 #include "Actions\ActionChngDrawCol.h"
+#include "Actions\ActionChngFillColor.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -17,8 +18,8 @@ ApplicationManager::ApplicationManager()
 	FigCount = 0;
 		
 	//Create an array of figure pointers and set them to NULL		
-	for(int i=0; i<MaxFigCount; i++)
-		FigList[i] = NULL;	
+	//for(int i=0; i<MaxFigCount; i++)
+		//FigList[i] = NULL;	
 }
 
 void ApplicationManager::Run()
@@ -63,25 +64,30 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			break;
 		case DRAW_ELPS:
 			newAct = new ActionAddEllipse(this);
-
 			break;
 
 		case DRAW_HEX:
 			newAct = new ActionAddHexagon(this);
-
 			break;
 
 		case SELECT_FIG:
 			newAct =  new ActionSelectShape(this);
-
 			break;
+
 		case CHNG_DRAW_CLR:
 			newAct = new ActionChngDRCol(this);
-
 			break;
+
 		case CHNG_BK_CLR:
 			newAct = new ActionChngBGCol(this);
+			break;
+		case CHNG_FILL_CLR:
+			newAct = new ActionChngFillColor(this);
+			break;
 
+			//DEL
+		case DEL:
+			newAct = new ActionDeleteShape(this);
 			break;
 
 		case EXIT:
@@ -114,8 +120,9 @@ void ApplicationManager::ExecuteAction(Action* &pAct)
 //Add a figure to the list of figures
 void ApplicationManager::AddFigure(CFigure* pFig)
 {
-	if(FigCount < MaxFigCount )
-		FigList[FigCount++] = pFig;	
+	//if(FigCount < MaxFigCount )
+		//FigList[FigCount++] = pFig;	
+	FigList.push_back(pFig);
 }
 ////////////////////////////////////////////////////////////////////////////////////
 CFigure *ApplicationManager::GetFigure(int x, int y) const
@@ -142,7 +149,7 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 //Draw all figures on the user interface
 void ApplicationManager::UpdateInterface() const
 {	
-	for(int i=0; i<FigCount; i++)
+	for(int i=0; i<FigList.size(); i++)
 		FigList[i]->DrawMe(pGUI);		//Call Draw function (virtual member fn)
 }
 ////////////////////////////////////////////////////////////////////////////////////
@@ -153,8 +160,45 @@ GUI *ApplicationManager::GetGUI() const
 //Destructor
 ApplicationManager::~ApplicationManager()
 {
-	for(int i=0; i<FigCount; i++)
+	for(int i=0; i<FigList.size(); i++)
 		delete FigList[i];
 	delete pGUI;
 	
+}
+
+//====================================================================
+//             Deleting a figure from figuers list  --IslamHamza    ||
+//====================================================================
+
+//Getting selected shapes from the entire figure list
+//void ApplicationManager::UpdateInterface() const
+
+void ApplicationManager::deleteShapes() 
+{
+	for (int i = 0; i < FigList.size(); i++)
+	{
+		if (FigList[i]->IsSelected())
+		{
+			FigList.erase(FigList.begin() + i);
+			
+		}
+	}
+}
+//==================================================================================
+//             changing fill color for a figure from figuers list  --IslamHamza    ||
+//===================================================================================
+
+//Getting selected shapes from the entire figure list
+//void ApplicationManager::UpdateInterface() const
+
+void ApplicationManager::changeFillColor(color Fclr)
+{
+	for (int i = 0; i < FigList.size(); i++)
+	{
+		if (FigList[i]->IsSelected())
+		{
+			FigList[i]->ChngFillClr(Fclr);
+			
+		}
+	}
 }
