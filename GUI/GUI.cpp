@@ -164,7 +164,7 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_CHNG_BG] = "images\\MenuItems\\Menu_BG_Col.jpg";
 	MenuItemImages[ITM_CHNG_DR] = "images\\MenuItems\\Menu_DR_Col.jpg";
 	MenuItemImages[ITM_DEL] = "images\\MenuItems\\Menu_del.jpg"; 
-	MenuItemImages[ITM_CHNG_FILL_CLR] = "images\\MenuItems\\Menu_Fill_Col.JPG";
+	MenuItemImages[ITM_CHNG_FILL_CLR] = "images\\MenuItems\\Menu_Fill_Col.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
 	//TODO: Prepare images for each menu item and add it to the list
