@@ -13,7 +13,7 @@ void ActionSelectShape::Execute() {
 
 	//Step 1 - Read Square data from the user
 
-	pGUI->PrintMessage("Select shape: Click at any shape");
+	//pGUI->PrintMessage("Select shape: Click at any shape");
 	//Read 1st point and store in point P1
 	pGUI->GetPointClicked(point.x, point.y);
 

@@ -26,7 +26,7 @@ void ApplicationManager::Run()
 {
 	ActionType ActType;
 	do
-	{		
+	{	
 		//1- Read user action
 		ActType = pGUI->MapInputToActionType();
 
@@ -98,6 +98,11 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		case STATUS:	//a click on the status bar ==> no action
 			return NULL;
 			break;
+
+		default:
+			newAct = new ActionSelectShape(this);
+			break;
+
 	}	
 	return newAct;
 }
