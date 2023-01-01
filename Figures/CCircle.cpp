@@ -7,7 +7,6 @@ CCircle::CCircle(Point center, int _radius, GfxInfo FigureGfxInfo):CFigure(Figur
 }
 
 void CCircle::DrawMe(GUI* pGUI) const {
-
 	pGUI->DrawCircle(center, radius, FigGfxInfo, Selected);
 
 }
@@ -21,4 +20,28 @@ bool CCircle::isBelongTo(int x, int y) {
 		return true;
 
 	return false;
+}
+
+void CCircle::Resize(GUI* pGUI, float size)
+{
+
+	float radius_test = radius * size;
+
+	if ((center.y + radius_test) > UI.height - UI.StatusBarHeight
+		|| (center.x + radius_test * 1.5) > UI.width
+		|| (center.x - radius * 0.5) < 1)
+	{
+		pGUI->PrintMessage("Hexagon size will be more than Drawing Area");
+		Sleep(1000);
+	}
+	else if (radius_test < 20)
+	{
+		pGUI->PrintMessage("Hexagon size will be very small");
+		Sleep(1000);
+	}
+	else
+	{
+		radius = radius_test;
+	}
+
 }

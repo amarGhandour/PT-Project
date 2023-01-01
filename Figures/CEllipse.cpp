@@ -37,3 +37,41 @@ bool CEllipse::isBelongTo(int x, int y) {
 		return true;
 	return false;
 }
+
+void CEllipse::Resize(GUI* pGUI, float size)
+{
+	Point test1 = TopLeftCorner, test2 = BottomRightCorner;
+	if (size == .5) size = -0.5;
+	else if (size == .25) size = -(4.0 / 3);
+	else if (size == 2) size = 1;
+	else size = 3;
+
+	// half radius (horizontal x && vertical y)
+	float deltaX, deltaY;
+	deltaX = 0.5 * (BottomRightCorner.x - TopLeftCorner.x);
+	deltaY = 0.5 * (BottomRightCorner.y - TopLeftCorner.y);
+
+
+	test1.x -= deltaX * size;
+	test2.x += deltaX * size;
+	test1.y -= deltaY * size;
+	test2.y += deltaY * size;
+
+	if (test1.y < UI.ToolBarHeight || test2.y > UI.height - UI.StatusBarHeight
+		|| test2.x > UI.width || test1.x < 1)
+	{
+		pGUI->PrintMessage("Ellips size will be more than Drawing Area");
+		Sleep(1000);
+	}
+	else if (((test2.x - test1.x) / 2) < 15 || ((test2.y - test1.y) / 2) < 10)
+	{
+		pGUI->PrintMessage("Ellips size will be very small");
+		Sleep(1000);
+	}
+	else
+	{
+		TopLeftCorner = test1;
+		BottomRightCorner = test2;
+	}
+
+}

@@ -31,7 +31,7 @@ public:
 
 
 	//virtual void Rotate() = 0;	//Rotate the figure
-	//virtual void Resize() = 0;	//Resize the figure
+	virtual void Resize(GUI* pGUI, float size) = 0;	//Resize the figure
 	//virtual void Move() = 0;		//Move the figure
 
 	virtual bool isBelongTo(int x, int y) = 0;

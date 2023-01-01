@@ -14,6 +14,7 @@ public:
     void DrawMe(GUI*) const;
 
     bool isBelongTo(int x, int y);
+    void Resize(GUI* pGUI, float size);
 
     float CHexagon::AreaTriangle(float, float, float , float , float , float );
 };

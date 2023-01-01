@@ -8,6 +8,8 @@
 #include "Actions\ActionChngBGCol.h"
 #include "Actions\ActionChngDrawCol.h"
 #include "Actions\ActionChngFillColor.h"
+#include "Actions\Resize.h"
+
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -89,6 +91,9 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		case DEL:
 			newAct = new ActionDeleteShape(this);
 			break;
+		case RESIZE:
+			newAct = new Resize(this);
+			break;
 
 		case EXIT:
 			///create ExitAction here
@@ -154,6 +159,7 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 //Draw all figures on the user interface
 void ApplicationManager::UpdateInterface() const
 {	
+	pGUI->ClearDrawArea();
 	for(int i=0; i<FigList.size(); i++)
 		FigList[i]->DrawMe(pGUI);		//Call Draw function (virtual member fn)
 }
@@ -189,6 +195,7 @@ void ApplicationManager::deleteShapes()
 		}
 	}
 }
+
 //==================================================================================
 //             changing fill color for a figure from figuers list  --IslamHamza    ||
 //===================================================================================
@@ -207,3 +214,26 @@ void ApplicationManager::changeFillColor(color Fclr)
 		}
 	}
 }
+
+void ApplicationManager::Resize_figure(GUI* pGUI, float size) const {
+	for (int i = 0; i < FigList.size(); i++)
+	{
+		if (FigList[i]->IsSelected())
+		{
+			FigList[i]->Resize(pGUI, size);
+		}
+	}
+}
+
+bool ApplicationManager::AnySelected() const
+{
+	for (int i = 0; i < FigList.size(); i++)
+	{
+		if (FigList[i]->IsSelected())
+		{
+			return true;
+		}
+	}
+	return false;
+}
+

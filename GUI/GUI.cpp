@@ -93,6 +93,7 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_CHNG_DR: return CHNG_DRAW_CLR;
 			case ITM_CHNG_FILL_CLR: return CHNG_FILL_CLR;
 			case ITM_DEL: return DEL;
+			case ITM_RESIZE: return RESIZE;
 			case ITM_EXIT: return EXIT;	
 			
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -106,6 +107,34 @@ ActionType GUI::MapInputToActionType() const
 		}
 		
 		//[3] User clicks on the status bar
+		return STATUS;
+	}else if (UI.InterfaceMode == MODE_SIZE)
+	{
+		//[1] If user clicks on the Toolbar
+		if (y >= 0 && y < UI.ToolBarHeight)
+		{
+			//Check whick Menu item was clicked
+			//==> This assumes that menu items are lined up horizontally <==
+			int ClickedItemOrder = (x / UI.MenuItemWidth);
+			//Divide x coord of the point clicked by the menu item width (int division)
+			//If division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
+			switch (ClickedItemOrder)
+			{
+			case ITM_BACK1:  return BACK1;
+			case ITM_QUARTER: return QUARTER;
+			case ITM_HALF: return HALF;
+
+			case ITM_DOUBLE:   return DOUBLE1;
+			case ITM_QUADRUPLE: return QUADRUPLE;
+
+			default: return EMPTY;
+			}
+		}
+		//[2] User clicks on the drawing area
+		if (y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
+		{
+			return DRAWING_AREA;
+		}
 		return STATUS;
 	}
 	else	//GUI is in PLAY mode
@@ -166,6 +195,7 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_DEL] = "images\\MenuItems\\Menu_del.jpg"; 
 	MenuItemImages[ITM_CHNG_FILL_CLR] = "images\\MenuItems\\Menu_Fill_Col.JPG";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
+	MenuItemImages[ITM_RESIZE] = "images\\MenuItems\\Resize.jpg";
 
 	//TODO: Prepare images for each menu item and add it to the list
 
@@ -188,7 +218,37 @@ void GUI::CreatePlayToolBar() const
 	///TODO: write code to create Play mode menu
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+void GUI::CreateToolBar() const
+{
+	pWind->SetPen(WHITE, 1);
+	pWind->SetBrush(WHITE);
+	pWind->DrawRectangle(0, 0, UI.width, UI.ToolBarHeight);
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+void GUI::CreateSizeBar() const
+{
+	CreateToolBar();
+	UI.InterfaceMode = MODE_SIZE;
 
+	string MenuItemImages[SIZE_ITM_COUNT];
+
+	MenuItemImages[ITM_BACK1] = "images\\MenuItems\\back.jpg";
+	MenuItemImages[ITM_QUARTER] = "images\\MenuItems\\quartter.jpg";
+	MenuItemImages[ITM_HALF] = "images\\MenuItems\\hallf.jpg";
+	MenuItemImages[ITM_DOUBLE] = "images\\MenuItems\\two.jpg";
+	MenuItemImages[ITM_QUADRUPLE] = "images\\MenuItems\\four.jpg";
+
+
+	
+	for (int i = 0; i < SIZE_ITM_COUNT; i++)
+		pWind->DrawImage(MenuItemImages[i], i * UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
+
+	//Draw a line under the toolbar
+	pWind->SetPen(RED, 3);
+	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
 void GUI::ClearDrawArea() const
 {
 	pWind->SetPen(UI.BkGrndColor, 1);

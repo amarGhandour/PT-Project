@@ -10,8 +10,20 @@
 enum GUI_MODE	//Graphical user interface mode
 {
 	MODE_DRAW,	//Drawing mode (startup mode)
-	MODE_PLAY	//Playing mode
+	MODE_PLAY,	//Playing mode
+	MODE_SIZE
 };
+
+enum SizeMenuItem 
+{
+	ITM_BACK1,
+	ITM_QUARTER,
+	ITM_HALF,
+	ITM_DOUBLE,
+	ITM_QUADRUPLE,
+	SIZE_ITM_COUNT
+};
+
 
 enum DrawMenuItem //The items of the Draw menu (you should add more items)
 {
@@ -27,6 +39,7 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_CHNG_FILL_CLR, //change fill color
 
 	ITM_DEL,         //delete shapes
+	ITM_RESIZE,
 	//TODO: Add more items names here
 
 	ITM_EXIT,		//Exit item

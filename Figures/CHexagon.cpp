@@ -44,6 +44,32 @@ float CHexagon::AreaTriangle(float x1, float y1, float x2, float y2, float x3, f
 	return abs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) * 0.5);
 }
 
+void CHexagon::Resize(GUI* pGUI, float size)
+{
+
+	float length_test = SideLength * size;
+	float height_test = Height * size;
+	if ((TopLeft.y + height_test) > UI.height - UI.StatusBarHeight
+		|| (TopLeft.x + length_test * 1.5) > UI.width
+		|| (TopLeft.x - length_test * 0.5) < 1)
+	{
+		pGUI->PrintMessage("Hexagon size will be more than Drawing Area");
+		Sleep(1000);
+	}
+	else if (length_test < 20 || height_test < 20)
+	{
+		pGUI->PrintMessage("Hexagon size will be very small");
+		Sleep(1000);
+	}
+	else
+	{
+		SideLength = length_test;
+		SideLength = height_test;
+		//PrintInfo(pGUI);
+	}
+
+}
+
 
 
 

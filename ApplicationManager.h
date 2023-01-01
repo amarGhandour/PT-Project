@@ -46,6 +46,10 @@ public:
 
 	//changing fill color
 	void changeFillColor(color Fclr);
+
+	void Resize_figure(GUI* pGUI, float size) const;
+
+	bool AnySelected() const;
 };
 
 #endif

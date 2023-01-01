@@ -16,6 +16,7 @@ public:
 	virtual void DrawMe(GUI* pOut) const;
 
 	bool isBelongTo(int x, int y);
+	void Resize(GUI* pGUI, float size);
 
 };
 
