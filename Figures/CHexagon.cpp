@@ -68,7 +68,15 @@ void CHexagon::Resize(GUI* pGUI, float size)
 		//PrintInfo(pGUI);
 	}
 
+
+
 }
+
+void CHexagon::Load(ifstream& Infile) {
+}
+
+void CHexagon::Save(ofstream& OutFile) {}
+
 
 
 

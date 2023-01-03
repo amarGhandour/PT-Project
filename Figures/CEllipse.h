@@ -17,6 +17,9 @@ public:
 
 	bool isBelongTo(int x, int y);
 	void Resize(GUI* pGUI, float size);
+	void Load(ifstream& Infile);	
+	void Save(ofstream& OutFile);
+
 
 };
 

@@ -93,7 +93,9 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_CHNG_DR: return CHNG_DRAW_CLR;
 			case ITM_CHNG_FILL_CLR: return CHNG_FILL_CLR;
 			case ITM_DEL: return DEL;
+			case ITM_SAVE: return SAVE;
 			case ITM_RESIZE: return RESIZE;
+			case ITM_LOAD: return LOAD;
 			case ITM_EXIT: return EXIT;	
 			
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -196,6 +198,8 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_CHNG_FILL_CLR] = "images\\MenuItems\\Menu_Fill_Col.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 	MenuItemImages[ITM_RESIZE] = "images\\MenuItems\\Resize.jpg";
+	MenuItemImages[ITM_SAVE] = "images\\MenuItems\\Menu_Save.jpg";
+	MenuItemImages[ITM_LOAD] = "images\\MenuItems\\Menu_Load.jpg";
 
 	//TODO: Prepare images for each menu item and add it to the list
 
@@ -267,6 +271,9 @@ void GUI::PrintMessage(string msg) const	//Prints a message on status bar
 	pWind->DrawString(10, UI.height - (int)(UI.StatusBarHeight/1.5), msg);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+bool GUI::getIsFilled() const {
+	return false;
+}
 
 color GUI::getCrntDrawColor() const	//get current drwawing color
 {	return UI.DrawColor;	}
@@ -278,6 +285,19 @@ color GUI::getCrntFillColor() const	//get current filling color
 	
 int GUI::getCrntPenWidth() const		//get current pen width
 {	return UI.PenWidth;	}
+
+
+void GUI::setCrntDrawColor(color c) const {
+	UI.DrawColor = c;
+}
+
+void GUI::setCrntFillColor(color c) const {
+	UI.FillColor = c;
+}
+void GUI::setCrntBKGrandColor(color c) const {
+	UI.BkGrndColor = c;
+}
+
 
 //======================================================================================//
 //								Figures Drawing Functions								//

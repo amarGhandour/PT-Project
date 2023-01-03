@@ -4,6 +4,7 @@
 #include <vector>
 #include "DEFS.h"
 #include "Figures\CFigure.h"
+#include "GUI\GUI.h"
 
 class Action;	//Forward Declaration
 
@@ -50,6 +51,10 @@ public:
 	void Resize_figure(GUI* pGUI, float size) const;
 
 	bool AnySelected() const;
+	string ConvertToString(color c) const;
+	void SaveFig(ofstream& Out);
+	void ResetFiglist();
+
 };
 
 #endif

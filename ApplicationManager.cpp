@@ -9,6 +9,13 @@
 #include "Actions\ActionChngDrawCol.h"
 #include "Actions\ActionChngFillColor.h"
 #include "Actions\Resize.h"
+#include "Actions\Save.h"
+#include "Actions\Load.h"
+
+#include <string>
+#include <string.h>
+#include <iostream>
+#include<sstream> 
 
 
 //Constructor
@@ -93,6 +100,12 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			break;
 		case RESIZE:
 			newAct = new Resize(this);
+			break;
+		case SAVE:
+			newAct = new Save(this, FigList.size());
+			break;
+		case LOAD:
+			newAct = new Load(this);
 			break;
 
 		case EXIT:
@@ -236,4 +249,34 @@ bool ApplicationManager::AnySelected() const
 	}
 	return false;
 }
+string ApplicationManager::ConvertToString(color c) const   //Convert from Color Type to String Type
+{
+	std::ostringstream os;
+	os << int(c.ucRed) << "\t";
+	os << int(c.ucGreen) << "\t";
+	os << int(c.ucBlue);
 
+	std::string s = os.str();
+
+	return s;
+}
+
+void ApplicationManager::SaveFig(ofstream& Out)   //Call the Save function for each Figure
+{
+
+	for (int i = 0; i < FigList.size(); ++i)
+		FigList[i]->Save(Out);
+}
+
+
+
+void ApplicationManager::ResetFiglist()
+{
+	for (int i = 0; i < FigCount; i++)
+	{
+		FigList[i] = NULL;
+		delete FigList[i];
+	}
+	FigCount = 0;
+	FigList.clear();
+}

@@ -139,7 +139,9 @@
     <ClCompile Include="Actions\ActionDeleteShape.cpp" />
     <ClCompile Include="Actions\ActionGeneral.cpp" />
     <ClCompile Include="Actions\ActionSelectShape.cpp" />
+    <ClCompile Include="Actions\Load.cpp" />
     <ClCompile Include="Actions\Resize.cpp" />
+    <ClCompile Include="Actions\save.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
     <ClCompile Include="CMUgraphicsLib\image.cpp" />
@@ -197,7 +199,9 @@
     <ClInclude Include="Actions\ActionDeleteShape.h" />
     <ClInclude Include="Actions\ActionGeneral.h" />
     <ClInclude Include="Actions\ActionSelectShape.h" />
+    <ClInclude Include="Actions\Load.h" />
     <ClInclude Include="Actions\Resize.h" />
+    <ClInclude Include="Actions\save.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
     <ClInclude Include="CMUgraphicsLib\colors.h" />

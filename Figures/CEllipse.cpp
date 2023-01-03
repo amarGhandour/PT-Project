@@ -75,3 +75,12 @@ void CEllipse::Resize(GUI* pGUI, float size)
 	}
 
 }
+
+void CEllipse::Load(ifstream& Infile) {
+
+}
+
+void CEllipse::Save(ofstream& OutFile) {
+	return;
+}
+

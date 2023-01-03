@@ -1,4 +1,6 @@
 #include "CSquare.h"
+#include <iostream>
+#include <fstream>
 
 CSquare::CSquare(Point P1, int len, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
@@ -6,6 +8,11 @@ CSquare::CSquare(Point P1, int len, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo
 	length = len;
 }
 	
+CSquare::CSquare()
+{
+	
+}
+
 
 void CSquare::DrawMe(GUI* pGUI) const
 {
@@ -50,5 +57,45 @@ void CSquare::Resize(GUI* pGUI, float size)
 		//PrintInfo(pGUI);
 	}
 
+
+}
+
+void  CSquare::Save(ofstream& OutFile)
+{
+	OutFile << "Square\t"
+		<< ID << "\t" << this->TopLeftCorner.x << "\t" << this->TopLeftCorner.y << "\t"
+		<< this->length << "\t"
+		<< this->colorToString(this->FigGfxInfo.DrawClr) << "\t";
+	if (this->FigGfxInfo.isFilled)
+		OutFile << this->colorToString(this->FigGfxInfo.FillClr) << "\n";
+	else
+		OutFile << "NON-FILLED\n";
+
+}
+
+void CSquare::Load(ifstream& Infile) {
+	this->FigGfxInfo.BorderWdth = 3;
+
+	string s;
+	Infile >> this->ID >> this->TopLeftCorner.x >> this->TopLeftCorner.y
+		>> this->length;
+
+	int r, g, b;
+	Infile >> r >> g >> b;
+	this->FigGfxInfo.DrawClr = color(r, g, b);
+
+	Infile >> s;
+	cout << s << endl;
+	if (!(s == "NON-FILLED")) {
+		r = (int)s[0];
+
+		Infile >> g >> b;
+		cout << r << " " << g << " " << b << endl;
+
+		this->FigGfxInfo.FillClr = color(r, g, b);
+		this->FigGfxInfo.isFilled = true;
+	}
+	else
+		this->FigGfxInfo.isFilled = false;
 
 }

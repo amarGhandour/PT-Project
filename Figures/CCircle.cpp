@@ -45,3 +45,6 @@ void CCircle::Resize(GUI* pGUI, float size)
 	}
 
 }
+
+void CCircle::Load(ifstream& Infile) {}	//Load the figure parameters to the file
+void CCircle::Save(ofstream& OutFile) {}
