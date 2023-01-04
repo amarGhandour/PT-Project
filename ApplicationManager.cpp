@@ -208,6 +208,26 @@ void ApplicationManager::deleteShapes()
 		}
 	}
 }
+//====================================================================
+//             changing selected drawings colors   --IslamHamza    ||
+//====================================================================
+
+//Getting selected shapes from the entire figure list
+//void ApplicationManager::UpdateInterface() const
+
+void ApplicationManager::changeSelectedDrawingsColor(color Drcolor)
+{
+	for (int i = 0; i < FigList.size(); i++)
+	{
+		if (FigList[i]->IsSelected())
+		{
+			FigList[i]->ChngDrawClr(Drcolor);
+		}
+	}
+}
+
+
+
 
 //==================================================================================
 //             changing fill color for a figure from figuers list  --IslamHamza    ||

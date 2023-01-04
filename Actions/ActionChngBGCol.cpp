@@ -26,7 +26,7 @@ void ActionChngBGCol::Execute()
 	//User has entered one point P1
 	//2.1- Identify the required color of the BG
 	color bg=pGUI->pWind->GetColor(P1.x, P1.y);
-	UI.BkGrndColor=bg;
+	pGUI->setCrntBKGrandColor(bg);
 	pGUI->ClearDrawArea();
 
 

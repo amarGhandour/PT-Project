@@ -28,7 +28,9 @@ void ActionChngDRCol::Execute()
 	//2.1- Identify the required color of the BG
 	color DrawingCol = pGUI->pWind->GetColor(P1.x, P1.y);
 	pGUI->PrintMessage("New Drawing color: Color changed successfully");
-	UI.DrawColor = DrawingCol;
+	pManager->changeSelectedDrawingsColor(DrawingCol);
+	pGUI->setCrntDrawColor(DrawingCol);
+	
 	
 	//pGUI->ClearStatusBar();
 
