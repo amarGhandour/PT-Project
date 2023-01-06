@@ -10,7 +10,6 @@ CSquare::CSquare(Point P1, int len, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo
 	
 CSquare::CSquare()
 {
-	
 }
 
 
