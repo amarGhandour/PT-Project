@@ -6,6 +6,11 @@ CCircle::CCircle(Point center, int _radius, GfxInfo FigureGfxInfo):CFigure(Figur
 	this->radius = _radius;
 }
 
+
+CCircle::CCircle() {
+
+}
+
 void CCircle::DrawMe(GUI* pGUI) const {
 	pGUI->DrawCircle(center, radius, FigGfxInfo, Selected);
 
@@ -46,5 +51,39 @@ void CCircle::Resize(GUI* pGUI, float size)
 
 }
 
-void CCircle::Load(ifstream& Infile) {}	//Load the figure parameters to the file
-void CCircle::Save(ofstream& OutFile) {}
+void CCircle::Load(ifstream& Infile)
+{
+	this->FigGfxInfo.BorderWdth = 3;
+
+	string s;
+	Infile >> this->ID >> this->center.x >> this->center.y
+		>> this->radius;
+
+	int r, g, b;
+	Infile >> r >> g >> b;
+	this->FigGfxInfo.DrawClr = color(r, g, b);
+
+	Infile >> s;
+	if (!(s == "NON-FILLED")) {
+		r = (int)s[0];
+
+		Infile >> g >> b;
+		this->FigGfxInfo.FillClr = color(r, g, b);
+		this->FigGfxInfo.isFilled = true;
+	}
+	else
+		this->FigGfxInfo.isFilled = false;
+
+}
+
+void CCircle::Save(ofstream& OutFile)
+{
+	OutFile << "Circle\t" << ID << "\t" << this->center.x << "\t" << this->center.y << "\t"
+		<< this->radius << "\t"
+		<< this->colorToString(this->FigGfxInfo.DrawClr) << "\t";
+	if (this->FigGfxInfo.isFilled)
+		OutFile << this->colorToString(this->FigGfxInfo.FillClr) << "\n";
+	else
+		OutFile << "NON-FILLED\n";
+
+}

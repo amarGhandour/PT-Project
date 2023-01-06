@@ -5,7 +5,8 @@
 #include"..\GUI\GUI.h"
 #include <iostream>
 #include <fstream>
-
+#include <windows.h>
+#include <shobjidl.h> 
 
 Save::Save(ApplicationManager* pApp, int FigCount) : Action(pApp)
 {
@@ -14,34 +15,70 @@ Save::Save(ApplicationManager* pApp, int FigCount) : Action(pApp)
 }
 void Save::Execute() {
 
-
     GUI* pGUI = pManager->GetGUI();
     ofstream OutFile;
-    //object of ofstream to write on the disk
-    pGUI->PrintMessage("Please write a valid name then press ENTER");
-    //bool flag = false;
-  //  if (OutFile.fail()) {
-  //      flag = true;
-  //  }
+   
+		string path = "";
+		HRESULT hr = CoInitializeEx(NULL, COINITBASE_MULTITHREADED |
+			COINIT_DISABLE_OLE1DDE);
+		if (SUCCEEDED(hr))
+		{
+			IFileSaveDialog* pFileSave;
 
-  //  while (flag)
- //   {
-  //      pGUI->PrintMessage("Please write a valid name then press ENTER");
-    //    FileName = pGUI->GetSrting();
-        OutFile.open(FileName + ".txt");
-  //      if (OutFile.good())
-    //        flag = false;
- //   }
-//
-  //  OutFile.open(FileName); // create a file with FileName and .txt exetention
-    OutFile << pManager->ConvertToString(UI.DrawColor) << "\t";
-    
-    OutFile << pManager->ConvertToString(UI.FillColor) << "\t";
+			// Create the FileOpenDialog object.
+			hr = CoCreateInstance(CLSID_FileSaveDialog, NULL, CLSCTX_ALL,
+				IID_IFileSaveDialog, reinterpret_cast<void**>(&pFileSave));
+			if (SUCCEEDED(hr))
+			{
+				// Set default extension
+				hr = pFileSave->SetDefaultExtension(L"txt");
+				if (SUCCEEDED(hr))
+				{
+					// Show the Open dialog box.
+					hr = pFileSave->Show(NULL);
 
-    OutFile << pManager->ConvertToString(UI.BkGrndColor);  //Write the Current Draw Color
-    OutFile << "\n" << FigCnt << "\n";  //and Current Fill Color and in the second line write the number of figures
-    pManager->SaveFig(OutFile);  //Now Start Saving each figure proccess
-    OutFile.close();
+					// Get the file name from the dialog box.
+					if (SUCCEEDED(hr))
+					{
+						IShellItem* pItem;
+						hr = pFileSave->GetResult(&pItem);
+						if (SUCCEEDED(hr))
+						{
+							PWSTR pszFilePath;
+							hr = pItem->GetDisplayName(SIGDN_FILESYSPATH, &pszFilePath);
+							// Display the file name to the user.
+							if (SUCCEEDED(hr))
+							{
+		
+								char buffer[500];
+								wcstombs(buffer, pszFilePath, 500);
+								path = buffer;
+								CoTaskMemFree(pszFilePath);
+								//////////////////
+								OutFile.open(pszFilePath); 
+						
+								OutFile << pManager->ConvertToString(UI.DrawColor) << "\t";
 
+								OutFile << pManager->ConvertToString(UI.FillColor) << "\t";
+
+								OutFile << pManager->ConvertToString(UI.BkGrndColor);  
+								OutFile << "\n" << FigCnt << "\n";  
+								pManager->SaveFig(OutFile);  
+								OutFile.close();
+
+							}
+							pItem->Release();
+						}
+					}
+					pFileSave->Release();
+				}
+			}
+			CoUninitialize();
+		}
+
+		pGUI->CreateToolBar();
+
+		pGUI->CreateDrawToolBar();
+   
 }
 

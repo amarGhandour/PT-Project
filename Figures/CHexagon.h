@@ -10,6 +10,7 @@ class CHexagon :
 
 public:
     CHexagon(Point, int, int, GfxInfo FigureGfxInfo);
+    CHexagon();
 
     void DrawMe(GUI*) const;
 

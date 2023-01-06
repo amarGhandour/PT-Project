@@ -17,6 +17,10 @@ CEllipse::CEllipse(Point P1, Point P2, double StartAng, double EndAng, GfxInfo F
 	
 }
 
+CEllipse::CEllipse() {
+
+}
+
 
 void CEllipse::DrawMe(GUI* pGUI) const
 {
@@ -76,11 +80,39 @@ void CEllipse::Resize(GUI* pGUI, float size)
 
 }
 
-void CEllipse::Load(ifstream& Infile) {
+void CEllipse::Load(ifstream& Infile)
+{
+	this->FigGfxInfo.BorderWdth = 3;
+
+	string s;
+	Infile >> this->ID >> this->TopLeftCorner.x >> this->TopLeftCorner.y
+		>> this->BottomRightCorner.x >> this->BottomRightCorner.y;
+
+	int r, g, b;
+	Infile >> r >> g >> b;
+	this->FigGfxInfo.DrawClr = color(r, g, b);
+
+	Infile >> s;
+	if (!(s == "NON-FILLED")) {
+		r = (int)s[0];
+
+		Infile >> g >> b;
+		this->FigGfxInfo.FillClr = color(r, g, b);
+		this->FigGfxInfo.isFilled = true;
+	}
+	else
+		this->FigGfxInfo.isFilled = false;
 
 }
 
-void CEllipse::Save(ofstream& OutFile) {
-	return;
+void CEllipse::Save(ofstream& OutFile)      
+{
+	OutFile << "Ellipse\t" << ID << "\t" << this->TopLeftCorner.x << "\t" << this->TopLeftCorner.y << "\t"
+		<< this->BottomRightCorner.x << "\t" << this->BottomRightCorner.y << "\t"
+		<< this->colorToString(this->FigGfxInfo.DrawClr) << "\t";
+	if (this->FigGfxInfo.isFilled)
+		OutFile << this->colorToString(this->FigGfxInfo.FillClr) << "\n";
+	else
+		OutFile << "NON-FILLED\n";
+	
 }
-

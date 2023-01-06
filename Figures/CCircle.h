@@ -10,6 +10,7 @@ class CCircle :
 
 public:
      CCircle(Point, int, GfxInfo FigureGfxInfo);
+     CCircle();
 
      void DrawMe(GUI*) const;
 

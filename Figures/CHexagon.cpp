@@ -1,6 +1,12 @@
 #include "CHexagon.h"
 
 
+
+
+CHexagon::CHexagon() {
+
+};
+
 CHexagon::CHexagon(Point point, int len, int height, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo) {
 	TopLeft = point;
 	SideLength = len;
@@ -72,11 +78,43 @@ void CHexagon::Resize(GUI* pGUI, float size)
 
 }
 
-void CHexagon::Load(ifstream& Infile) {
+void CHexagon::Load(ifstream& Infile)
+{
+	this->FigGfxInfo.BorderWdth = 3;
+
+	string s;
+	Infile >> this->ID >> this->TopLeft.x >> this->TopLeft.y
+		>> this->SideLength >> this->Height;
+
+	int r, g, b;
+	Infile >> r >> g >> b;
+	this->FigGfxInfo.DrawClr = color(r, g, b);
+
+	Infile >> s;
+	if (!(s == "NON-FILLED")) {
+		r = (int)s[0];
+
+		Infile >> g >> b;
+
+		this->FigGfxInfo.FillClr = color(r, g, b);
+		this->FigGfxInfo.isFilled = true;
+	}
+	else
+		this->FigGfxInfo.isFilled = false;
+
+
 }
 
-void CHexagon::Save(ofstream& OutFile) {}
-
+void CHexagon::Save(ofstream& OutFile)
+{
+	OutFile << "Hexagon\t" << this->ID << "\t" << this->TopLeft.x << "\t" << this->TopLeft.y << "\t"
+		<< this->SideLength << "\t" << this->Height << "\t"
+		<< this->colorToString(this->FigGfxInfo.DrawClr) << "\t";
+	if (this->FigGfxInfo.isFilled)
+		OutFile << this->colorToString(this->FigGfxInfo.FillClr) << "\n";
+	else
+		OutFile << "NON-FILLED\n";
+}
 
 
 

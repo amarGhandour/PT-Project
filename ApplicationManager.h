@@ -56,6 +56,8 @@ public:
 	void SaveFig(ofstream& Out);
 	void ResetFiglist();
 
+	int getFigCount() const;
+
 };
 
 #endif

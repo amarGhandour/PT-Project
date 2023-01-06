@@ -187,7 +187,6 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ActionGeneral.h" />
     <ClInclude Include="Actions\Action.h" />
     <ClInclude Include="Actions\ActionAddCircle.h" />
     <ClInclude Include="Actions\ActionAddEllipse.h" />
@@ -197,7 +196,6 @@
     <ClInclude Include="Actions\ActionChngDrawCol.h" />
     <ClInclude Include="Actions\ActionChngFillColor.h" />
     <ClInclude Include="Actions\ActionDeleteShape.h" />
-    <ClInclude Include="Actions\ActionGeneral.h" />
     <ClInclude Include="Actions\ActionSelectShape.h" />
     <ClInclude Include="Actions\Load.h" />
     <ClInclude Include="Actions\Resize.h" />

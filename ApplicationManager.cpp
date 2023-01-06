@@ -52,6 +52,10 @@ void ApplicationManager::Run()
 	
 }
 
+int ApplicationManager::getFigCount() const {
+	return FigList.size();
+}
+
 
 //==================================================================================//
 //								Actions Related Functions							//

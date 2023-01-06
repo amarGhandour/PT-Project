@@ -12,6 +12,7 @@ private:
 	int startxLength, startyLength;
 public:
 	CEllipse(Point, Point, double, double, GfxInfo FigureGfxInfo);
+	CEllipse();
 
 	virtual void DrawMe(GUI* pOut) const;
 
