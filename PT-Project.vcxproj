@@ -138,6 +138,7 @@
     <ClCompile Include="Actions\ActionChngFillColor.cpp" />
     <ClCompile Include="Actions\ActionDeleteShape.cpp" />
     <ClCompile Include="Actions\ActionGeneral.cpp" />
+    <ClCompile Include="Actions\ActionPickColor.cpp" />
     <ClCompile Include="Actions\ActionPickType.cpp" />
     <ClCompile Include="Actions\ActionSelectShape.cpp" />
     <ClCompile Include="Actions\ActionSwitchToPlay.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="Actions\save.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
+    <ClCompile Include="CMUgraphicsLib\colors.cpp" />
     <ClCompile Include="CMUgraphicsLib\image.cpp" />
     <ClCompile Include="CMUgraphicsLib\jpegload.c" />
     <ClCompile Include="CMUgraphicsLib\keyqueue.cpp" />
@@ -198,6 +200,7 @@
     <ClInclude Include="Actions\ActionChngDrawCol.h" />
     <ClInclude Include="Actions\ActionChngFillColor.h" />
     <ClInclude Include="Actions\ActionDeleteShape.h" />
+    <ClInclude Include="Actions\ActionPickColor.h" />
     <ClInclude Include="Actions\ActionPickType.h" />
     <ClInclude Include="Actions\ActionSelectShape.h" />
     <ClInclude Include="Actions\ActionSwitchToPlay.h" />

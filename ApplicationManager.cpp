@@ -13,6 +13,7 @@
 #include "Actions\Load.h"
 #include "Actions\ActionSwitchToPlay.h"
 #include "Actions\ActionPickType.h"
+#include "Actions\ActionPickColor.h"
 
 #include <string>
 #include <string.h>
@@ -121,6 +122,11 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		case P_BY_TYPE:
 			newAct = new ActionPickType(this);
 			break;
+
+		case P_BY_COLOR:
+			newAct = new ActionPickColor(this);
+			break;
+
 		case EXIT:
 			///create ExitAction here
 			
@@ -339,4 +345,12 @@ CFigure* ApplicationManager::getRandomFigure() const
 		return FigList[rand() % FigList.size()];
 	}
 	return nullptr;
+}
+
+bool ApplicationManager::hasDifferentColors() const {
+	for (int i = 0; i < FigList.size() - 1; i++) {
+		if (FigList[i]->GetFillClr() != FigList[i + 1]->GetFillClr())
+			return true;
+	}
+	return false;
 }

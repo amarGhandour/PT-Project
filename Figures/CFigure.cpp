@@ -82,3 +82,11 @@ void CFigure::displayShape() {
 	isHidden = false;
 }
 
+string CFigure::GetFillClr()
+{
+	if (FigGfxInfo.isFilled)
+		return colorToString(FigGfxInfo.FillClr);
+	else
+		return "NON-FILLED";
+}
+

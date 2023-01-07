@@ -60,6 +60,8 @@ public:
 	void unselectAll() const;
 	vector<CFigure*> getFiguresList() const;
 	CFigure* getRandomFigure() const;
+
+	bool ApplicationManager::hasDifferentColors() const;
 };
 
 #endif

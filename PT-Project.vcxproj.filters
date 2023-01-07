@@ -184,9 +184,19 @@
     <ClCompile Include="Actions\save.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Actions\Load.cpp" />
-    <ClCompile Include="Actions\ActionSwitchToPlay.cpp" />
-    <ClCompile Include="Actions\ActionPickType.cpp" />
+    <ClCompile Include="Actions\ActionPickType.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionSwitchToPlay.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\Load.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionPickColor.cpp" />
+    <ClCompile Include="CMUgraphicsLib\colors.cpp">
+      <Filter>CMUgraphicsLib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -310,8 +320,15 @@
     <ClInclude Include="Actions\save.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
-    <ClInclude Include="Actions\Load.h" />
-    <ClInclude Include="Actions\ActionSwitchToPlay.h" />
-    <ClInclude Include="Actions\ActionPickType.h" />
+    <ClInclude Include="Actions\ActionPickType.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionSwitchToPlay.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\Load.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionPickColor.h" />
   </ItemGroup>
 </Project>
