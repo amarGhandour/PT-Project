@@ -152,6 +152,7 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_BY_COLOR:return P_BY_COLOR;
 			case ITM_BY_BOTH:return P_BY_BOTH;
 			case ITM_TO_DRAW:return TO_DRAW;
+
 			default: return EMPTY;
 			}
 

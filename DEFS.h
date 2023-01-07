@@ -32,6 +32,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	TO_PLAY,			//Switch interface to Play mode
 
 	///TODO: Add more action types (if needed)
+	BACK2,
 	P_BY_TYPE,		//Pick and hide, by type
 	P_BY_COLOR,		//Pick and hide, by color
 	P_BY_BOTH,

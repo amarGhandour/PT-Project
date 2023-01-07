@@ -57,7 +57,6 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	ITM_BY_BOTH,	//Play and hide by both color and type item in menu
 	ITM_TO_DRAW,	// RETURN To draw mode item in menu
 
-
 	PLAY_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
 	
 };

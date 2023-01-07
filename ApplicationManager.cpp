@@ -15,6 +15,7 @@
 #include "Actions\ActionPickType.h"
 #include "Actions\ActionPickColor.h"
 #include "Actions\ActionPickBoth.h"
+#include "Actions\ActionSwitchToDrawMode.h"
 
 #include <string>
 #include <string.h>
@@ -132,6 +133,9 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			newAct = new ActionPickBoth(this);
 			break;
 
+		case TO_DRAW:
+			newAct = new ActionSwitchToDrawMode(this);
+			break;
 		case EXIT:
 			///create ExitAction here
 			
