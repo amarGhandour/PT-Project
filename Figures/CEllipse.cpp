@@ -14,10 +14,12 @@ CEllipse::CEllipse(Point P1, Point P2, double StartAng, double EndAng, GfxInfo F
 
 	startxLength = xLength;
 	startyLength = yLength;
-	
+	FigureName = "ELLIPSE";
+
 }
 
 CEllipse::CEllipse() {
+	FigureName = "ELLIPSE";
 
 }
 

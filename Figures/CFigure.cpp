@@ -7,12 +7,14 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 	ID = ++CFigure::counter;
 	FigGfxInfo = FigureGfxInfo;	//Default status is non-filled.
 	Selected = false;
+	isHidden = false;
 }
 
 CFigure::CFigure()
 {
 	++CFigure::counter;
 	Selected = false;
+	isHidden = false;
 }
 
 void CFigure::SetSelected(bool s)
@@ -68,5 +70,15 @@ color CFigure::GetStrinColor(string s) const
 	if (s == "PURPLE")
 		return PURPLE;
 	return BLACK;
+}
+
+bool CFigure::isShapeHiddin() const {
+	return isHidden;
+}
+void CFigure::HideShape() {
+	isHidden = true;
+}
+void CFigure::displayShape() {
+	isHidden = false;
 }
 

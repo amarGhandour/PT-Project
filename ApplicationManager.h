@@ -57,7 +57,9 @@ public:
 	void ResetFiglist();
 
 	int getFigCount() const;
-
+	void unselectAll() const;
+	vector<CFigure*> getFiguresList() const;
+	CFigure* getRandomFigure() const;
 };
 
 #endif

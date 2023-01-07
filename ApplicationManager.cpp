@@ -11,6 +11,8 @@
 #include "Actions\Resize.h"
 #include "Actions\Save.h"
 #include "Actions\Load.h"
+#include "Actions\ActionSwitchToPlay.h"
+#include "Actions\ActionPickType.h"
 
 #include <string>
 #include <string.h>
@@ -112,6 +114,13 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 			newAct = new Load(this);
 			break;
 
+		case TO_PLAY:
+			newAct = new ActionSwitchToPlay(this);
+			break;
+
+		case P_BY_TYPE:
+			newAct = new ActionPickType(this);
+			break;
 		case EXIT:
 			///create ExitAction here
 			
@@ -177,8 +186,13 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 void ApplicationManager::UpdateInterface() const
 {	
 	pGUI->ClearDrawArea();
-	for(int i=0; i<FigList.size(); i++)
-		FigList[i]->DrawMe(pGUI);		//Call Draw function (virtual member fn)
+	for (int i = 0; i < FigList.size(); i++)
+	{
+		if (!FigList[i]->isShapeHiddin())//********v3**********//****v4 reem
+		{
+			FigList[i]->DrawMe(pGUI); 	//Call Draw function (virtual member fn)
+		}
+	}
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the interface
@@ -303,4 +317,26 @@ void ApplicationManager::ResetFiglist()
 	}
 	FigCount = 0;
 	FigList.clear();
+}
+
+void ApplicationManager::unselectAll() const
+{
+	for (int i = 0; i < FigList.size(); i++)
+	{
+		FigList[i]->SetSelected(false);
+	}
+}
+
+vector<CFigure*> ApplicationManager::getFiguresList() const {
+	return this->FigList;
+}
+
+CFigure* ApplicationManager::getRandomFigure() const
+{
+	if (FigList.size() > 0)
+	{
+		srand(time(NULL));
+		return FigList[rand() % FigList.size()];
+	}
+	return nullptr;
 }

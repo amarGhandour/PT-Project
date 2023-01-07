@@ -96,6 +96,8 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_SAVE: return SAVE;
 			case ITM_RESIZE: return RESIZE;
 			case ITM_LOAD: return LOAD;
+			case ITM_TO_PLAY: return TO_PLAY;
+
 			case ITM_EXIT: return EXIT;	
 			
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -141,9 +143,19 @@ ActionType GUI::MapInputToActionType() const
 	}
 	else	//GUI is in PLAY mode
 	{
-		///TODO:
-		//perform checks similar to Draw mode checks above
-		//and return the correspoding action
+		if (y >= 0 && y < UI.ToolBarHeight)
+		{
+			int ClickedItemOrder = (x / UI.MenuItemWidth);
+			switch (ClickedItemOrder)
+			{
+			case ITM_BY_TYPE:return P_BY_TYPE;
+			case ITM_BY_COLOR:return P_BY_COLOR;
+			case ITM_BY_BOTH:return P_BY_BOTH;
+			case ITM_TO_DRAW:return TO_DRAW;
+			default: return EMPTY;
+			}
+
+		}
 		return TO_PLAY;	//just for now. This should be updated
 	}	
 
@@ -200,6 +212,7 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_RESIZE] = "images\\MenuItems\\Resize.jpg";
 	MenuItemImages[ITM_SAVE] = "images\\MenuItems\\Menu_Save.jpg";
 	MenuItemImages[ITM_LOAD] = "images\\MenuItems\\Menu_Load.jpg";
+	MenuItemImages[ITM_TO_PLAY] = "images\\MenuItems\\game.jpg";
 
 	//TODO: Prepare images for each menu item and add it to the list
 
@@ -218,8 +231,20 @@ void GUI::CreateDrawToolBar() const
 
 void GUI::CreatePlayToolBar() const
 {
+	CreateToolBar();
 	UI.InterfaceMode = MODE_PLAY;
-	///TODO: write code to create Play mode menu
+	
+	string PlayMenuItems[PLAY_ITM_COUNT];
+	PlayMenuItems[ITM_BY_TYPE] = "images\\MenuItems\\byType.jpg";
+	PlayMenuItems[ITM_BY_COLOR] = "images\\MenuItems\\byClr.jpg";
+	PlayMenuItems[ITM_BY_BOTH] = "images\\MenuItems\\byBoth.jpg";
+	PlayMenuItems[ITM_TO_DRAW] = "images\\MenuItems\\back.jpg";
+
+	for (int i = 0; i < PLAY_ITM_COUNT; i++)
+		pWind->DrawImage(PlayMenuItems[i], i * UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
+
+	pWind->SetPen(RED, 3);
+	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::CreateToolBar() const

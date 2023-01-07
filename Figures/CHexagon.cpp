@@ -1,9 +1,8 @@
 #include "CHexagon.h"
 
 
-
-
 CHexagon::CHexagon() {
+	FigureName = "HEXAGON";
 
 };
 
@@ -11,6 +10,8 @@ CHexagon::CHexagon(Point point, int len, int height, GfxInfo FigureGfxInfo):CFig
 	TopLeft = point;
 	SideLength = len;
 	Height = height;
+	FigureName = "HEXAGON";
+
 }
 
 void CHexagon::DrawMe(GUI* pGUI) const {

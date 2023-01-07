@@ -4,10 +4,13 @@
 CCircle::CCircle(Point center, int _radius, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo) {
 	this->center = center;
 	this->radius = _radius;
+	FigureName = "CIRCLE";
+
 }
 
 
 CCircle::CCircle() {
+	FigureName = "CIRCLE";
 
 }
 

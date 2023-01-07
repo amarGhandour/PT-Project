@@ -14,6 +14,7 @@ protected:
 	static int counter;
 	int ID;		//Each figure has an ID
 	bool Selected;	//true if the figure is selected.
+	bool isHidden;
 	GfxInfo FigGfxInfo;	//Figure graphis info
 	string FigureName;
 	/// Add more parameters if needed.
@@ -24,6 +25,10 @@ public:
 	CFigure(GfxInfo FigureGfxInfo);
 	void SetSelected(bool );	//select/unselect the figure
 	bool IsSelected() const;	//check whether fig is selected
+
+	bool CFigure::isShapeHiddin() const;
+	void CFigure::HideShape();
+	void CFigure::displayShape();
 
 	virtual void DrawMe(GUI*) const  = 0 ;		//Draw the figure
 	
