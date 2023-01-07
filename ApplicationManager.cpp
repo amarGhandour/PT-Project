@@ -14,6 +14,7 @@
 #include "Actions\ActionSwitchToPlay.h"
 #include "Actions\ActionPickType.h"
 #include "Actions\ActionPickColor.h"
+#include "Actions\ActionPickBoth.h"
 
 #include <string>
 #include <string.h>
@@ -125,6 +126,10 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 
 		case P_BY_COLOR:
 			newAct = new ActionPickColor(this);
+			break;
+
+		case P_BY_BOTH:
+			newAct = new ActionPickBoth(this);
 			break;
 
 		case EXIT:
@@ -353,4 +358,11 @@ bool ApplicationManager::hasDifferentColors() const {
 			return true;
 	}
 	return false;
+}
+
+void ApplicationManager::displayAllFigures() const
+{
+	for (int i = 0; i < FigList.size(); i++) {
+		FigList[i]->displayShape();
+	}
 }

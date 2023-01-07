@@ -197,6 +197,7 @@
     <ClCompile Include="CMUgraphicsLib\colors.cpp">
       <Filter>CMUgraphicsLib</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\ActionPickBoth.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -330,5 +331,6 @@
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Actions\ActionPickColor.h" />
+    <ClInclude Include="Actions\ActionPickBoth.h" />
   </ItemGroup>
 </Project>

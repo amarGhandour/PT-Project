@@ -62,6 +62,7 @@ public:
 	CFigure* getRandomFigure() const;
 
 	bool ApplicationManager::hasDifferentColors() const;
+	void ApplicationManager::displayAllFigures() const;
 };
 
 #endif

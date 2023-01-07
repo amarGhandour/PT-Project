@@ -138,6 +138,7 @@
     <ClCompile Include="Actions\ActionChngFillColor.cpp" />
     <ClCompile Include="Actions\ActionDeleteShape.cpp" />
     <ClCompile Include="Actions\ActionGeneral.cpp" />
+    <ClCompile Include="Actions\ActionPickBoth.cpp" />
     <ClCompile Include="Actions\ActionPickColor.cpp" />
     <ClCompile Include="Actions\ActionPickType.cpp" />
     <ClCompile Include="Actions\ActionSelectShape.cpp" />
@@ -200,6 +201,7 @@
     <ClInclude Include="Actions\ActionChngDrawCol.h" />
     <ClInclude Include="Actions\ActionChngFillColor.h" />
     <ClInclude Include="Actions\ActionDeleteShape.h" />
+    <ClInclude Include="Actions\ActionPickBoth.h" />
     <ClInclude Include="Actions\ActionPickColor.h" />
     <ClInclude Include="Actions\ActionPickType.h" />
     <ClInclude Include="Actions\ActionSelectShape.h" />
