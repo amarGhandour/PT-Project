@@ -33,8 +33,16 @@ void ActionAddHexagon::Execute() {
 	//Read 2nd point and store in point P2
 	pGUI->GetPointClicked(P2.x, P2.y);
 
+
 	pGUI->ClearStatusBar();
 
+	if (P1.y < UI.ToolBarHeight || P2.y < UI.ToolBarHeight
+		|| P1.y > UI.height - UI.StatusBarHeight || P2.y > UI.height - UI.StatusBarHeight)
+	{
+		pGUI->PrintMessage("draw inside drawing area");
+	}
+	else
+	{
 
 	Point topLeft;
 	topLeft.x = P1.x < P2.x ? P1.x : P2.x;
@@ -50,4 +58,5 @@ void ActionAddHexagon::Execute() {
 
 	//Step 4 - Add the Square to the list of figures
 	pManager->AddFigure(R);
+	}
 }

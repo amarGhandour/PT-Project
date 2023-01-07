@@ -37,22 +37,30 @@ void ActionAddSquare::Execute()
 
 	pGUI->ClearStatusBar();
 
+	if (P1.y < UI.ToolBarHeight || P2.y < UI.ToolBarHeight
+		|| P1.y>UI.height - UI.StatusBarHeight || P2.y>UI.height - UI.StatusBarHeight)
+	{
+		pGUI->PrintMessage("draw inside drawing area");
+	}
+	else
+	{
 
-	//Step 2 - prepare square data
-	//User has entered two points P1&P2
-	//2.1- Identify the Top left corner of the square
-	Point topLeft ;
-	topLeft.x = P1.x<P2.x? P1.x: P2.x;
-	topLeft.y = P1.y<P2.y? P1.y: P2.y;
+		//Step 2 - prepare square data
+		//User has entered two points P1&P2
+		//2.1- Identify the Top left corner of the square
+		Point topLeft;
+		topLeft.x = P1.x < P2.x ? P1.x : P2.x;
+		topLeft.y = P1.y < P2.y ? P1.y : P2.y;
 
-	//2.2- Calcuate square side legnth
-	//The square side length would be the longer distance between the two points coordinates
-	int SideLength = max(abs(P1.x-P2.x), abs(P1.y-P2.y));
+		//2.2- Calcuate square side legnth
+		//The square side length would be the longer distance between the two points coordinates
+		int SideLength = max(abs(P1.x - P2.x), abs(P1.y - P2.y));
 
-		
-	//Step 3 - Create a Square with the parameters read from the user
-	CSquare *R=new CSquare(topLeft, SideLength, SqrGfxInfo);
 
-	//Step 4 - Add the Square to the list of figures
-	pManager->AddFigure(R);
+		//Step 3 - Create a Square with the parameters read from the user
+		CSquare* R = new CSquare(topLeft, SideLength, SqrGfxInfo);
+
+		//Step 4 - Add the Square to the list of figures
+		pManager->AddFigure(R);
+	}
 }
