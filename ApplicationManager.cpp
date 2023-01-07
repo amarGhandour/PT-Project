@@ -16,6 +16,9 @@
 #include "Actions\ActionPickColor.h"
 #include "Actions\ActionPickBoth.h"
 #include "Actions\ActionSwitchToDrawMode.h"
+#include "Actions\ActionSendToBack.h"
+#include "Actions\ActionBringToFront.h"
+
 
 #include <string>
 #include <string.h>
@@ -136,6 +139,14 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
 		case TO_DRAW:
 			newAct = new ActionSwitchToDrawMode(this);
 			break;
+
+		case BRNG_FRNT:
+			newAct = new ActionBringToFront(this);
+			break;
+
+		case SEND_BACK:
+			newAct = new ActionSendToBack(this);
+			break;
 		case EXIT:
 			///create ExitAction here
 			
@@ -182,11 +193,11 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 	//if this point (x,y) does not belong to any figure return NULL
 	CFigure* fig = NULL;
 
-	for (auto figure : FigList) {
+	for (int i = FigList.size() - 1; i >= 0; i--) {
 
-		if (figure && figure->isBelongTo(x, y))
+		if (FigList[i] && FigList[i]->isBelongTo(x, y))
 		{
-			fig = figure;
+			fig = FigList[i];
 			break;
 		}
 	}
@@ -369,4 +380,39 @@ void ApplicationManager::displayAllFigures() const
 	for (int i = 0; i < FigList.size(); i++) {
 		FigList[i]->displayShape();
 	}
+}
+
+
+int ApplicationManager::bringToFront()
+{
+	for (int i = 0; i < FigList.size(); i++)
+	{
+		if (FigList[i]->IsSelected())
+		{
+			CFigure* fig = FigList[i];
+			FigList.erase(FigList.begin() + i);
+			FigList.push_back(fig);
+			
+			return 1;
+
+		}
+	}return 0;
+}
+
+//====================================================================
+//             bringing a figure to front         --Mayar and islam ||
+//====================================================================
+
+int ApplicationManager::sendToBack()
+{
+	for (int i = 0; i < FigList.size(); i++)
+	{
+		if (FigList[i]->IsSelected())
+		{
+			FigList.insert(FigList.begin(), FigList[i]);
+			FigList.erase(FigList.begin() + i + 1);
+			return 1;
+
+		}
+	}return 0;
 }

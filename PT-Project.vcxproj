@@ -133,6 +133,7 @@
     <ClCompile Include="Actions\ActionAddEllipse.cpp" />
     <ClCompile Include="Actions\ActionAddHexagon.cpp" />
     <ClCompile Include="Actions\ActionAddSquare.cpp" />
+    <ClCompile Include="Actions\ActionBringToFront.cpp" />
     <ClCompile Include="Actions\ActionChngBGCol.cpp" />
     <ClCompile Include="Actions\ActionChngDrawCol.cpp" />
     <ClCompile Include="Actions\ActionChngFillColor.cpp" />
@@ -142,8 +143,10 @@
     <ClCompile Include="Actions\ActionPickColor.cpp" />
     <ClCompile Include="Actions\ActionPickType.cpp" />
     <ClCompile Include="Actions\ActionSelectShape.cpp" />
+    <ClCompile Include="Actions\ActionSendToBack.cpp" />
     <ClCompile Include="Actions\ActionSwitchToDrawMode.cpp" />
     <ClCompile Include="Actions\ActionSwitchToPlay.cpp" />
+    <ClCompile Include="Actions\Exit.cpp" />
     <ClCompile Include="Actions\Load.cpp" />
     <ClCompile Include="Actions\Resize.cpp" />
     <ClCompile Include="Actions\save.cpp" />
@@ -198,6 +201,7 @@
     <ClInclude Include="Actions\ActionAddEllipse.h" />
     <ClInclude Include="Actions\ActionAddHexagon.h" />
     <ClInclude Include="Actions\ActionAddSquare.h" />
+    <ClInclude Include="Actions\ActionBringToFront.h" />
     <ClInclude Include="Actions\ActionChngBGCol.h" />
     <ClInclude Include="Actions\ActionChngDrawCol.h" />
     <ClInclude Include="Actions\ActionChngFillColor.h" />
@@ -206,8 +210,10 @@
     <ClInclude Include="Actions\ActionPickColor.h" />
     <ClInclude Include="Actions\ActionPickType.h" />
     <ClInclude Include="Actions\ActionSelectShape.h" />
+    <ClInclude Include="Actions\ActionSendToBack.h" />
     <ClInclude Include="Actions\ActionSwitchToDrawMode.h" />
     <ClInclude Include="Actions\ActionSwitchToPlay.h" />
+    <ClInclude Include="Actions\Exit.h" />
     <ClInclude Include="Actions\Load.h" />
     <ClInclude Include="Actions\Resize.h" />
     <ClInclude Include="Actions\save.h" />

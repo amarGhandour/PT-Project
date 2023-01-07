@@ -61,8 +61,10 @@ public:
 	vector<CFigure*> getFiguresList() const;
 	CFigure* getRandomFigure() const;
 
-	bool ApplicationManager::hasDifferentColors() const;
-	void ApplicationManager::displayAllFigures() const;
+	bool hasDifferentColors() const;
+	void displayAllFigures() const;
+	int sendToBack();
+	int bringToFront();
 };
 
 #endif

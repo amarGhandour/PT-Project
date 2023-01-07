@@ -97,7 +97,8 @@ ActionType GUI::MapInputToActionType() const
 			case ITM_RESIZE: return RESIZE;
 			case ITM_LOAD: return LOAD;
 			case ITM_TO_PLAY: return TO_PLAY;
-
+			case ITM_SEND_BACK: return SEND_BACK;
+			case ITM_BRING_FRONT: return BRNG_FRNT;
 			case ITM_EXIT: return EXIT;	
 			
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -214,7 +215,8 @@ void GUI::CreateDrawToolBar() const
 	MenuItemImages[ITM_SAVE] = "images\\MenuItems\\Menu_Save.jpg";
 	MenuItemImages[ITM_LOAD] = "images\\MenuItems\\Menu_Load.jpg";
 	MenuItemImages[ITM_TO_PLAY] = "images\\MenuItems\\game.jpg";
-
+	MenuItemImages[ITM_SEND_BACK] = "images\\MenuItems\\sendback.jpg";
+	MenuItemImages[ITM_BRING_FRONT] = "images\\MenuItems\\bringfront.jpg";
 	//TODO: Prepare images for each menu item and add it to the list
 
 	//Draw menu item one image at a time

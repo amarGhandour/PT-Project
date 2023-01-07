@@ -37,7 +37,8 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_CHNG_BG,    //change bg color
 	ITM_CHNG_DR,    //change drawing color
 	ITM_CHNG_FILL_CLR, //change fill color
-
+	ITM_SEND_BACK,
+	ITM_BRING_FRONT,
 	ITM_DEL,         //delete shapes
 	ITM_RESIZE,
 	//TODO: Add more items names here
