@@ -39,12 +39,12 @@ void CCircle::Resize(GUI* pGUI, float size)
 		|| (center.x + radius_test * 1.5) > UI.width
 		|| (center.x - radius * 0.5) < 1)
 	{
-		pGUI->PrintMessage("Hexagon size will be more than Drawing Area");
+		pGUI->PrintMessage("Circle size will be more than Drawing Area");
 		Sleep(1000);
 	}
 	else if (radius_test < 20)
 	{
-		pGUI->PrintMessage("Hexagon size will be very small");
+		pGUI->PrintMessage("Circle size will be very small");
 		Sleep(1000);
 	}
 	else
