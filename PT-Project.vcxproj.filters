@@ -193,11 +193,9 @@
     <ClCompile Include="Actions\Load.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Actions\ActionPickColor.cpp" />
     <ClCompile Include="CMUgraphicsLib\colors.cpp">
       <Filter>CMUgraphicsLib</Filter>
     </ClCompile>
-    <ClCompile Include="Actions\ActionPickBoth.cpp" />
     <ClCompile Include="Actions\ActionSwitchToDrawMode.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
@@ -208,6 +206,12 @@
       <Filter>Action Classes</Filter>
     </ClCompile>
     <ClCompile Include="Actions\ActionSendToBack.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionPickBoth.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\ActionPickColor.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -342,8 +346,6 @@
     <ClInclude Include="Actions\Load.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
-    <ClInclude Include="Actions\ActionPickColor.h" />
-    <ClInclude Include="Actions\ActionPickBoth.h" />
     <ClInclude Include="Actions\ActionSwitchToDrawMode.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
@@ -354,6 +356,12 @@
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Actions\ActionSendToBack.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionPickColor.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\ActionPickBoth.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
   </ItemGroup>

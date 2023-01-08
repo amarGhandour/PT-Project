@@ -37,10 +37,18 @@ void ActionAddEllipse::Execute()
 	pGUI->GetPointClicked(P2.x, P2.y);
 
 	pGUI->ClearStatusBar();
+	if (P1.y < UI.ToolBarHeight || P2.y < UI.ToolBarHeight
+		|| P1.y>UI.height - UI.StatusBarHeight || P2.y>UI.height - UI.StatusBarHeight)
+	{
+		pGUI->PrintMessage("draw inside drawing area");
+	}
+	else
+	{
 
-	double StartAngle = 0;
-	double EndAngle=360;
-	CEllipse* R = new CEllipse(P1,P2,StartAngle,EndAngle, SqrGfxInfo);
+		double StartAngle = 0;
+		double EndAngle = 360;
+		CEllipse* R = new CEllipse(P1, P2, StartAngle, EndAngle, SqrGfxInfo);
 
-	pManager->AddFigure(R);
+		pManager->AddFigure(R);
+	}
 }
